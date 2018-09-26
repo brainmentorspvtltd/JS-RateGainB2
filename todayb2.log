@@ -1,0 +1,785 @@
+var a;
+undefined
+typeof(a);
+"undefined"
+a=100;
+100
+typeof(a);
+"number"
+a=1;
+1
+typeof(a);
+"number"
+a=100.20;
+100.2
+typeof(a);
+"number"
+a=100/0;
+Infinity
+typeof(a);
+"number"
+a = 100;
+100
+b = "100";
+"100"
+typeof(a);
+"number"
+typeof(b);
+"string"
+a==b;
+true
+a===b;
+false
+a+ b;
+"100100"
+a-b;
+0
+a*b;
+10000
+a/b;
+1
+a + b;
+"100100"
+a + parseInt(b);
+200
+a;
+100
+b="Amit";
+"Amit"
+a - b;
+NaN
+c = a - b;
+NaN
+typeof(c);
+"number"
+a= "100";
+"100"
+a = parseInt(a);
+100
+a = Number("100");
+100
+parseInt("Amit");
+NaN
+parseFloat("100.20");
+100.2
+typeof(Number);
+"function"
+typeof(parseInt);
+"function"
+var d= new Number("100");
+undefined
+typeof(d);
+"object"
+var t = parseInt("Amit");
+undefined
+t;
+NaN
+isNaN(t);
+true
+isNaN(t)?0:1000;
+0
+var a = 100/0;
+undefined
+a;
+Infinity
+isFinite(a);
+false
+var a= "Amit";
+undefined
+typeof(a);
+"string"
+a='Amit';
+"Amit"
+typeof(a);
+"string"
+a='A';
+"A"
+typeof(a);
+"string"
+a=`ghdfjkgdfgdfgdfgdfgdfggdfgdfgfdg
+dfg
+fd
+g
+dfg
+fd
+gfd
+g
+dfg
+d
+`;
+"ghdfjkgdfgdfgdfgdfgdfggdfgdfgfdg
+dfg
+fd
+g
+dfg
+fd
+gfd
+g
+dfg
+d
+"
+a;
+"ghdfjkgdfgdfgdfgdfgdfggdfgdfgfdg
+dfg
+fd
+g
+dfg
+fd
+gfd
+g
+dfg
+d
+"
+typeof(a);
+"string"
+a=100;
+100
+b = 200;
+200
+console.log("A is "+a+" and B is "+b);
+VM1904:1 A is 100 and B is 200
+undefined
+console.log(`A is ${a} and B is ${b}`);
+VM1950:1 A is 100 and B is 200
+undefined
+a="Let's DO It ";
+"Let's DO It "
+a=true;
+true
+typeof(a);
+"boolean"
+b= true;
+true
+a + b;
+2
+var obj = {};
+undefined
+typeof(obj);
+"object"
+obj instanceof Object;
+true
+typeof(Object);
+"function"
+obj.id = 100;
+100
+obj.name = "Ram";
+"Ram"
+obj.salary = 9999;
+9999
+obj;
+{id: 100, name: "Ram", salary: 9999}
+var obj2 = {id:1002,name:'Shyam'};
+undefined
+obj2.id;
+1002
+var e = [10,20,30,40,50];
+undefined
+typeof(e);
+"object"
+e instanceof Array;
+true
+typeof(Array);
+"function"
+e instanceof Object;
+true
+function show(){
+console.log("Show Call ");
+}
+undefined
+show();
+VM2891:2 Show Call 
+undefined
+var d = show;
+undefined
+typeof(d);
+"function"
+d;
+ƒ show(){
+console.log("Show Call ");
+}
+d()
+VM2891:2 Show Call 
+undefined
+show();
+VM2891:2 Show Call 
+undefined
+show(10);
+VM2891:2 Show Call 
+undefined
+show(10,20);
+VM2891:2 Show Call 
+undefined
+show(10,20,"Amit",[100,200]);
+VM2891:2 Show Call 
+undefined
+console.dir(show);
+VM3391:1 ƒ show()arguments: nullcaller: nulllength: 0name: "show"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM2891:1[[Scopes]]: Scopes[1]
+undefined
+function show(){
+console.log("Show Call ",arguments.length);
+}
+undefined
+show();
+VM3498:2 Show Call  0
+undefined
+show(10,20);
+VM3498:2 Show Call  2
+undefined
+show(10,20,"Amit");
+VM3498:2 Show Call  3
+undefined
+function addition(){
+var sum = 0;	
+for(var i = 0; i <arguments.length; i++){
+   sum+=arguments[i]; 
+}
+return sum;
+}
+undefined
+addition();
+0
+addition(10,20);
+30
+addition(10,20,30,40,50);
+150
+function addition(){
+var sum = 0;	
+for(var i = 0; i <arguments.length; i++){
+   sum+=parseInt(arguments[i]); 
+}
+return sum;
+}
+undefined
+addition(10,20,30,"40","50");
+150
+function addition(){
+var sum = 0;	
+for(var i = 0; i <arguments.length; i++){
+   sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]); 
+}
+return sum;
+}
+undefined
+addition(10,20,"amit","40","50");
+120
+function addition(){
+var sum = 0;	
+for(var i = 0; i <arguments.length; i++){
+	if(typeof arguments[i]==="function"){
+		arguments[i] = arguments[i]();    
+}
+   sum+=isNaN(parseInt(arguments[i]))?0:parseInt(arguments[i]); 
+}
+return sum;
+}
+undefined
+function firstNumber(){
+return 1000;
+}
+undefined
+addition(firstNumber,10,20,"amit","20");
+1050
+console.dir(addition);
+VM4773:1 ƒ addition()arguments: nullcaller: nulllength: 0name: "addition"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM4566:1[[Scopes]]: Scopes[1]
+undefined
+function adder(...args){
+var sum = 0;
+for(var i = 0 ; i<args.length; i++){
+sum+=args[i];
+}
+return sum;
+}
+undefined
+adder(10,20,30);
+60
+function adder(...args){
+var sum = 0;
+console.log("I is ",i);
+for(var i = 0 ; i<args.length; i++){
+sum+=args[i];
+}
+console.log("I is ***  ",i);
+return sum;
+}
+undefined
+adder(10,20);
+VM5049:3 I is  undefined
+VM5049:7 I is ***   2
+30
+function adder(...args){
+var sum = 0;
+d = 1000;
+//console.log("I is ",i);
+for(let i of args){
+sum+=i;
+}
+//console.log("I is ***  ",i);
+return sum;
+}
+undefined
+adder(10,20);
+30
+var arr = [10,20,30,40];
+undefined
+var arr2 = [100,200,300];
+undefined
+var t = [arr,arr2];
+undefined
+t;
+(2) [Array(4), Array(3)]0: (4) [10, 20, 30, 40]1: (3) [100, 200, 300]length: 2__proto__: Array(0)
+arr.push(9999);
+5
+t;
+(2) [Array(5), Array(3)]0: (5) [10, 20, 30, 40, 9999]1: (3) [100, 200, 300]length: 2__proto__: Array(0)
+var g1 = [...arr,...arr2];
+undefined
+g1;
+(8) [10, 20, 30, 40, 9999, 100, 200, 300]
+var emp = {id:1001,name:'Ram'};
+undefined
+var emp2 = {id:1002,name:'Shyam'};
+undefined
+var d = {"obj1":emp,"obj2":emp2};
+undefined
+d;
+{obj1: {…}, obj2: {…}}obj1: {id: 1001, name: "Ram"}obj2: {id: 1002, name: "Shyam"}__proto__: Object
+var salaryDetails = {salary:9999, hra:2222,da:3333};
+undefined
+emp;
+{id: 1001, name: "Ram"}
+var slip = {...emp, ...salaryDetails};
+undefined
+slip;
+{id: 1001, name: "Ram", salary: 9999, hra: 2222, da: 3333}
+function loop(n,fn){
+for(let i = 1; i<=n;i++){
+fn(i);
+}
+}
+undefined
+function evenOdd(num){
+console.log(num%2==0?"Even "+num+" Odd "+num);
+}
+VM6393:2 Uncaught SyntaxError: Unexpected token )
+function evenOdd(num){
+console.log(num%2==0?"Even "+num:" Odd "+num);
+}
+undefined
+function cube(num){
+console.log(num**3);
+}
+undefined
+loop(5,evenOdd);
+VM6407:2  Odd 1
+VM6407:2 Even 2
+VM6407:2  Odd 3
+VM6407:2 Even 4
+VM6407:2  Odd 5
+undefined
+loop(10,cube);
+VM6521:2 1
+VM6521:2 8
+VM6521:2 27
+VM6521:2 64
+VM6521:2 125
+VM6521:2 216
+VM6521:2 343
+VM6521:2 512
+VM6521:2 729
+VM6521:2 1000
+undefined
+emp;
+{id: 1001, name: "Ram"}
+emp.id;
+1001
+var key = "id";
+undefined
+emp.key;
+undefined
+emp;
+{id: 1001, name: "Ram"}
+emp[key];
+1001
+var emp = {id:1001,name:'Ram',1:1000,2:5555};
+undefined
+emp.1;
+VM7266:1 Uncaught SyntaxError: Unexpected number
+emp.id;
+1001
+emp.2;
+VM7291:1 Uncaught SyntaxError: Unexpected number
+var key = "1";
+undefined
+emp[key];
+1000
+ var calc = {
+ add(a,b){
+	return a + b;
+},
+ sub(a,b){
+	return a - b;
+}
+}
+undefined
+calc;
+{add: ƒ, sub: ƒ}
+calc.add(100,200);
+300
+var key = "add";
+undefined
+typeof(key);
+"string"
+calc[key](100,200);
+300
+key="sub";
+"sub"
+calc[key](100,200);
+-100
+calc;
+{add: ƒ, sub: ƒ}
+function add(){
+console.log("Add ");
+}
+undefined
+window.add();
+VM7897:2 Add 
+undefined
+add();
+VM7897:2 Add 
+undefined
+window.calc.add();
+NaN
+window.calc.add(100,200);
+300
+calc;
+{add: ƒ, sub: ƒ}add: ƒ add(a,b)sub: ƒ sub(a,b)__proto__: Object
+var a =0;
+undefined
+a = undefined;
+undefined
+if(a){
+console.log("Truthy ");
+}
+else{
+console.log("Falsy ");
+}
+VM8248:5 Falsy 
+undefined
+a=null;
+null
+if(a){
+console.log("Truthy ");
+}
+else{
+console.log("Falsy ");
+}
+VM8274:5 Falsy 
+undefined
+a=NaN;
+NaN
+if(a){
+console.log("Truthy ");
+}
+else{
+console.log("Falsy ");
+}
+VM8288:5 Falsy 
+undefined
+a=0;
+0
+if(a){
+console.log("Truthy ");
+}
+else{
+console.log("Falsy ");
+}
+VM8301:5 Falsy 
+undefined
+a="";
+""
+if(a){
+console.log("Truthy ");
+}
+else{
+console.log("Falsy ");
+}
+VM8314:5 Falsy 
+undefined
+a=100;
+100
+if(a){
+console.log("Truthy ");
+}
+else{
+console.log("Falsy ");
+}
+VM8324:2 Truthy 
+undefined
+ var calc = {
+ add(a,b){
+	a = a | 0;
+	b = b | 0;
+	return a + b;
+},
+ sub(a,b){
+	return a - b;
+}
+}
+undefined
+calc.add(100,200);
+300
+calc.add();
+0
+calc.add(10);
+10
+ var calc = {
+ add(a,b){
+	a = a | 0;
+	b = b | 0;
+	return a + b;
+},
+ sub(a=0,b=0){
+	return a - b;
+}
+}
+undefined
+calc.sub();
+0
+function doInitCount(){
+var count = 0; 
+function countIt(){
+ return ++count;
+}
+return countIt;
+}
+undefined
+var x = doInitCount();
+undefined
+x;
+ƒ countIt(){
+ return ++count;
+}
+x();
+1
+x();
+2
+x();
+3
+x();
+4
+count;
+VM10011:1 Uncaught ReferenceError: count is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM10011:1
+x = doInitCount();
+ƒ countIt(){
+ return ++count;
+}
+x();
+1
+var x = (function(){
+var count = 0; 
+function countIt(){
+ return ++count;
+}
+return countIt;
+})();
+undefined
+x();
+1
+x();
+2
+x();
+3
+x();
+4
+x();
+5
+function Payroll(salary){
+//var a = 100;
+var hra = function(){
+return salary * 0.30;
+}
+var da = function(){
+return salary * 0.20;
+}
+var ta = function(){
+return salary * 0.10;
+}
+return [hra,da,ta];
+//return {hra,da,ta};
+}
+undefined
+var t = Payroll(10000);
+undefined
+t;
+(3) [ƒ, ƒ, ƒ]0: ƒ ()arguments: nullcaller: nulllength: 0name: "hra"prototype: {constructor: ƒ}__proto__: ƒ ()[[FunctionLocation]]: VM11157:3[[Scopes]]: Scopes[2]1: ƒ ()2: ƒ ()length: 3__proto__: Array(0)
+t[0]();
+3000
+t[1]();
+2000
+t[2]();
+1000
+function Payroll(salary){
+//var a = 100;
+var hra = function hra(){
+return salary * 0.30;
+}
+var da = function da(){
+return salary * 0.20;
+}
+var ta = function ta(){
+return salary * 0.10;
+}
+return [hra,da,ta];
+//return {hra,da,ta};
+}
+undefined
+var t = Payroll(10000);
+undefined
+t;
+(3) [ƒ, ƒ, ƒ]0: ƒ hra()1: ƒ da()2: ƒ ta()length: 3__proto__: Array(0)
+var add = (x,y)=>x+y;
+undefined
+typeof(add);
+"function"
+add(10,20);
+30
+var add = (x,y)=>{
+console.log(` X is ${x} and Y is ${y}`);
+return x+y;
+}
+undefined
+add(100,200);
+VM11663:2  X is 100 and Y is 200
+300
+add;
+(x,y)=>{
+console.log(` X is ${x} and Y is ${y}`);
+return x+y;
+}
+var emp = {id:1001,name:'Ram',salary:9999};
+undefined
+function createEmployee(id, name, salary){
+var empObject = {};
+empObject.id = id;
+empObject.name = name;
+empObject.salary = salary;
+return empObject;	
+}
+undefined
+var ram =createEmployee(10,"ram",9999);
+undefined
+ram;
+{id: 10, name: "ram", salary: 9999}
+var shyam = createEmployee(12,"shyam",5555);
+undefined
+shyam;
+{id: 12, name: "shyam", salary: 5555}
+function Employee(id, name, salary){
+//var empObject = {}; var this = {};
+this.id = id;
+this.name = name;
+this.salary = salary;
+//return empObject; return this
+}
+undefined
+var ram = new Employee(1001,"Ram",2222);
+undefined
+typeof(ram);
+"object"
+ram instanceof Employee;
+true
+function Employee(id, name, salary){
+//var empObject = {}; var this = {};
+this.id = id;
+this.name = name;
+this.salary = salary;
+this.print=function(){
+console.log(`Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`);
+}
+//return empObject; return this
+}
+undefined
+ram.print();
+VM12623:1 Uncaught TypeError: ram.print is not a function
+    at <anonymous>:1:5
+(anonymous) @ VM12623:1
+var ram = new Employee(1001,"Ram",2222);
+undefined
+ram.print();
+VM12599:7 Id is 1001 Name is Ram and Salary is 2222
+undefined
+var shyam = new Employee(1002,"Shyam",3333);
+undefined
+shyam.print();
+VM12599:7 Id is 1002 Name is Shyam and Salary is 3333
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 2222, print: ƒ}
+shyam;
+Employee {id: 1002, name: "Shyam", salary: 3333, print: ƒ}
+Employee.prototype.show=function(){
+console.log(`::: Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`);
+}
+ƒ (){
+console.log(`::: Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`);
+}
+ram.show();
+VM12988:2 ::: Id is 1001 Name is Ram and Salary is 2222
+undefined
+shyam.show();
+VM12988:2 ::: Id is 1002 Name is Shyam and Salary is 3333
+undefined
+ram;
+Employee {id: 1001, name: "Ram", salary: 2222, print: ƒ}
+ram;
+Employee {id: 1001, name: "Ram", salary: 2222, print: ƒ}
+shyam;
+Employee {id: 1002, name: "Shyam", salary: 3333, print: ƒ}
+ram.bonus = 1000;
+1000
+ram;
+Employee {id: 1001, name: "Ram", salary: 2222, print: ƒ, bonus: 1000}
+shyam;
+Employee {id: 1002, name: "Shyam", salary: 3333, print: ƒ}
+delete shyam.salary;
+true
+ram;
+Employee {id: 1001, name: "Ram", salary: 2222, print: ƒ, bonus: 1000}
+shyam;
+Employee {id: 1002, name: "Shyam", print: ƒ}
+Employee.prototype.display=function(){
+}
+ƒ (){
+}
+Array.prototype.findDuplicate=function(){
+}
+ƒ (){
+}
+class Emp{
+constructor(id, name,salary){
+this.id = id;
+this.name = name;
+this.salary = salary;
+}
+print(){
+	console.log(`Id is ${this.id} Name is ${this.name} and Salary is ${this.salary}`);
+}
+}
+class FullTimeEmp extends Emp{
+constructor(id, name , salary, bonus){
+super(id, name, salary);
+this.bonus = bonus;
+}
+print(){
+super.print();
+	console.log(`Bonus is ${this.bonus}`);
+}
+}
+var ram  = new FullTimeEmp(10,'Ram',9000,99);
+undefined
+ram.print();
+VM14362:8 Id is 10 Name is Ram and Salary is 9000
+VM14362:18 Bonus is 99
+undefined

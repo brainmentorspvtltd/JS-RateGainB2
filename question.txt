@@ -1,0 +1,15 @@
+Need to maintain 5 Customer Records
+Want to access the records by Name.
+Amit - Id , Name, Address, Balance
+
+2 Kinds of Address
+Address - City, State, Country, ZipCode
+Office Address - 3 Offices Address , Sorted By City.
+Res Address - 2 Res Address , Sorted by country
+
+Customer has Orders
+Order are maintain By Id, and Order has Id , Name, Date, and Sorted by Id in Desc Order
+
+Order has Products, Products might be Active and DeActive.
+Products Sort By Price.
+Id , Name, Qty , Price.
