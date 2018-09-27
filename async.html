@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <script>
+        function doAjax() {
+            const url = "http://api.giphy.com/v1/gifs/search?q=tom%20and%20jerry&api_key=vFRSFWo6g7vJ7ZAjt3DMDolU52ORTxwH&limit=5";
+            var pr = fetch(url);
+            pr.then(response => {
+                console.log("Response ", response);
+                response.json().then(data => {
+                    console.log("Data  is ", data);
+                }).catch(err => {
+                    console.log("Invalid Json ", err);
+                });
+            }).catch(err => console.log('Error is ', err));
+        }
+
+        function callBack(x) {
+            console.log("Here is the X ", x);
+        }
+
+        function callHeavy() {
+            console.log("Calling Heavy....");
+            //var x = heavy(callBack);
+            var pr1 = heavy(3);
+            var pr2 = heavy(5);
+            var pr3 = heavy(7);
+            Promise.all([pr1, pr2, pr3]).then(responses => {
+                console.log("Responses are ", responses);
+            }).catch(err => console.log("Error is ", err));
+            //console.log("Promise is ", pr);
+            // Do Something else
+            for (let i = 1; i <= 10; i++) {
+                console.log("i is ", i);
+            }
+            //pr.then(data => console.log("Data is ", data)).catch(err => console.log("Error is ", err));
+            console.log("End....");
+            //console.log("X is ", x);
+        }
+
+        function heavy(num) {
+
+            console.log("Heavy Start");
+            var pr = new Promise((resolve, reject) => {
+                setTimeout(() => {
+                    resolve(num ** 3);
+                    /*for (let i = 1; i <= 100000; i++) {
+                        for (let j = 1; j <= 100000; j++) {
+
+                        }
+                    }*/
+                    document.querySelector("#output").innerText = "Heavy Done";
+                    resolve("I am Done");
+                    //return "I am Done";
+                }, 6000);
+            });
+            return pr;
+        }
+
+
+        // Call back
+        /* function heavy(fn) {
+
+             console.log("Heavy Start");
+             setTimeout(() => {
+                 for (let i = 1; i <= 100000; i++) {
+                     for (let j = 1; j <= 100000; j++) {
+
+                     }
+                 }
+                 document.querySelector("#output").innerText = "Heavy Done";
+                 fn("I am Done");
+                 //return "I am Done";
+             }, 6000);
+
+             console.log("Heavy End");
+         }
+         */
+        var counter = 0;
+
+        function light() {
+            ++counter;
+            document.querySelector("#result").innerText = counter;
+        }
+    </script>
+</head>
+
+<body>
+    <table>
+        <button onclick="doAjax()">Ajax</button>
+        <p id="output"></p>
+        <p id="result"></p>
+        <tr>
+            <td><button onclick="callHeavy()">Heavy</button></td>
+            <td><button onclick="light()">Light</button></td>
+        </tr>
+    </table>
+</body>
+
+</html>

@@ -1,0 +1,458 @@
+function Customer(id, name, balance){
+	this.id = id;
+	this.name = name;
+	this.balance = balance;
+}
+undefined
+var ram = new Customer(1001,'Ram',99999);
+undefined
+var customers = [];
+undefined
+customers.push(ram);
+1
+var shyam = new Customer(1002,"Shyam",88888);
+undefined
+customers.push(shyam);
+2
+customer.push(new Customer(1003, "Amit",77777);
+VM386:1 Uncaught SyntaxError: missing ) after argument list
+customer.push(new Customer(1003, "Amit",77777));
+VM395:1 Uncaught ReferenceError: customer is not defined
+    at <anonymous>:1:1
+(anonymous) @ VM395:1
+customers.push(new Customer(1003, "Amit",77777));
+3
+typeof(customers);
+"object"
+function compare(customerObject){
+	return customerObject.name=='Amit';
+}
+customers.find(compare);
+Customer {id: 1003, name: "Amit", balance: 77777}
+function compare(customerObject){
+	return customerObject.name=='Amit';
+}
+var record = customers.find(compare);
+if(record){
+	console.log("Found ",record);
+}
+else{
+	console.log("Not Found ", record);
+}
+VM1076:6 Found  Customer {id: 1003, name: "Amit", balance: 77777}
+undefined
+function compare(customerObject){
+	return customerObject.name=='TOM';
+}
+var record = customers.find(compare);
+if(record){
+	console.log("Found ",record);
+}
+else{
+	console.log("Not Found ", record);
+}
+VM1087:9 Not Found  undefined
+undefined
+customers.find(customerObject=>customerObject.name=='Amit')?"Found":"Not Found";
+"Found"
+customers.find(customerObject=>customerObject.name=='TOM')?"Found":"Not Found";
+"Not Found"
+customers.findIndex(customerObject=>customerObject.name=='Amit');
+2
+customers.findIndex(customerObject=>customerObject.name=='TOM');
+-1
+var filterdArray = customers.filter(customerObject=>customerObject.balance>=70000);
+undefined
+filterdArray;
+(3) [Customer, Customer, Customer]0: Customer {id: 1001, name: "Ram", balance: 99999}1: Customer {id: 1002, name: "Shyam", balance: 88888}2: Customer {id: 1003, name: "Amit", balance: 77777}length: 3__proto__: Array(0)
+var filterdArray = customers.filter(customerObject=>customerObject.balance>=80000);
+undefined
+filterdArray;
+(2) [Customer, Customer]
+customers.filter(customerObject=>customerObject.balance>=80000).length;
+2
+var clone = customers.filter(customerObject=>true);
+undefined
+clone;
+(3) [Customer, Customer, Customer]0: Customer {id: 1001, name: "Ram", balance: 99999}1: Customer {id: 1002, name: "Shyam", balance: 88888}2: Customer {id: 1003, name: "Amit", balance: 77777}length: 3__proto__: Array(0)
+var clone2 = [...customers];
+undefined
+clone2;
+(3) [Customer, Customer, Customer]
+var gg = [10,20,30,50];
+undefined
+gg.splice(1,2);
+(2) [20, 30]
+gg;
+(2) [10, 50]
+customers = customers.filter(customerObject=>customerObject.balance<80000);
+[Customer]
+customers
+[Customer]0: Customer {id: 1003, name: "Amit", balance: 77777}length: 1__proto__: Array(0)
+customers.push(new Customer(1002, "Ram",97777));
+2
+customers.push(new Customer(1001, "Mike",107777));
+3
+customers;
+(3) [Customer, Customer, Customer]
+customers.forEach(customerObject=>console.log(`Id is ${customerObject.id} Name ${customerObject.name} Balance ${customerObject.balance}`));
+VM2600:1 Id is 1003 Name Amit Balance 77777
+VM2600:1 Id is 1002 Name Ram Balance 97777
+VM2600:1 Id is 1001 Name Mike Balance 107777
+undefined
+customers.sort((first, second)=>first.id - second.id);
+(3) [Customer, Customer, Customer]0: Customer {id: 1001, name: "Mike", balance: 107777}1: Customer {id: 1002, name: "Ram", balance: 97777}2: Customer {id: 1003, name: "Amit", balance: 77777}length: 3__proto__: Array(0)
+customers.sort((first, second)=>second.id - first.id);
+(3) [Customer, Customer, Customer]0: Customer {id: 1003, name: "Amit", balance: 77777}1: Customer {id: 1002, name: "Ram", balance: 97777}2: Customer {id: 1001, name: "Mike", balance: 107777}length: 3__proto__: Array(0)
+customers.sort((first, second)=>second.id - first.id);
+(3) [Customer, Customer, Customer]0: Customer {id: 1003, name: "Amit", balance: 77777}1: Customer {id: 1002, name: "Ram", balance: 97777}2: Customer {id: 1001, name: "Mike", balance: 107777}length: 3__proto__: Array(0)
+"Amit".localeCompare("Mike");
+-1
+"Mike".localeCompare("Mike");
+0
+"Mike".localeCompare("Amit");
+1
+customers.sort((first,second)=>first.name.localCompare(second.name));
+VM3352:1 Uncaught TypeError: first.name.localCompare is not a function
+    at customers.sort (<anonymous>:1:43)
+    at Array.sort (native)
+    at <anonymous>:1:11
+customers.sort @ VM3352:1
+(anonymous) @ VM3352:1
+customers.sort((first,second)=>first.name.localeCompare(second.name));
+(3) [Customer, Customer, Customer]0: Customer {id: 1003, name: "Amit", balance: 77777}1: Customer {id: 1001, name: "Mike", balance: 107777}2: Customer {id: 1002, name: "Ram", balance: 97777}length: 3__proto__: Array(0)
+customers.sort((first,second)=>second.name.localeCompare(first.name));
+(3) [Customer, Customer, Customer]0: Customer {id: 1002, name: "Ram", balance: 97777}1: Customer {id: 1001, name: "Mike", balance: 107777}2: Customer {id: 1003, name: "Amit", balance: 77777}length: 3__proto__: Array(0)
+var arr = [1,2,3,4,5,6,7];
+undefined
+var b = arr.map(num=>num**3);
+undefined
+b;
+(7) [1, 8, 27, 64, 125, 216, 343]
+arr;
+(7) [1, 2, 3, 4, 5, 6, 7]
+customers;
+(3) [Customer, Customer, Customer]
+customers.reduce((acc,customerObject)=>acc+customerObject.balance,0);
+283331
+customers.reduce(acc,customerObject)=>{
+if(customerObject.balance>acc){
+acc = customerObject.balance;
+}
+return acc;
+},0);
+VM4407:1 Uncaught SyntaxError: Unexpected token .
+customers.reduce((acc,customerObject)=>{
+if(customerObject.balance>acc){
+acc = customerObject.balance;
+}
+return acc;
+},0);
+107777
+customers;
+(3) [Customer, Customer, Customer]0: Customer {id: 1002, name: "Ram", balance: 97777}1: Customer {id: 1001, name: "Mike", balance: 107777}2: Customer {id: 1003, name: "Amit", balance: 77777}length: 3__proto__: Array(0)
+Array;
+ƒ Array() { [native code] }
+Array.prototype;
+[constructor: ƒ, concat: ƒ, find: ƒ, findIndex: ƒ, pop: ƒ, …]concat: ƒ concat()constructor: ƒ Array()copyWithin: ƒ copyWithin()entries: ƒ entries()every: ƒ every()fill: ƒ fill()filter: ƒ filter()find: ƒ find()findIndex: ƒ findIndex()forEach: ƒ forEach()includes: ƒ includes()indexOf: ƒ indexOf()join: ƒ join()keys: ƒ keys()lastIndexOf: ƒ lastIndexOf()length: 0map: ƒ map()pop: ƒ pop()push: ƒ push()reduce: ƒ reduce()reduceRight: ƒ reduceRight()reverse: ƒ reverse()shift: ƒ shift()slice: ƒ slice()some: ƒ some()sort: ƒ sort()splice: ƒ splice()toLocaleString: ƒ toLocaleString()toString: ƒ toString()unshift: ƒ unshift()values: ƒ values()Symbol(Symbol.iterator): ƒ values()Symbol(Symbol.unscopables): {copyWithin: true, entries: true, fill: true, find: true, findIndex: true, …}__proto__: Object
+Array.prototype.find=function(){
+console.log("hgjkdgjkhd");
+}
+ƒ (){
+console.log("hgjkdgjkhd");
+}
+var d = [];
+undefined
+d.find();
+VM4601:2 hgjkdgjkhd
+undefined
+Customer;
+ƒ Customer(id, name, balance){
+	this.id = id;
+	this.name = name;
+	this.balance = balance;
+}
+typeof(Customer);
+"function"
+console.dir(Customer);
+VM4857:1 ƒ Customer(id, name, balance)arguments: nullcaller: nulllength: 3name: "Customer"prototype: constructor: ƒ Customer(id, name, balance)__proto__: Object__proto__: ƒ ()[[FunctionLocation]]: VM157:1[[Scopes]]: Scopes[1]
+undefined
+Customer.prototype;
+{constructor: ƒ}constructor: ƒ Customer(id, name, balance)__proto__: Object
+Customer;
+ƒ Customer(id, name, balance){
+	this.id = id;
+	this.name = name;
+	this.balance = balance;
+}
+Customer.prototype.print=function(){
+console.log("Id "+this.id+" Name "+this.name);
+}
+ƒ (){
+console.log("Id "+this.id+" Name "+this.name);
+}
+Customer.prototype;
+{print: ƒ, constructor: ƒ}
+Customer.prototype.__proto__;
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}constructor: ƒ Object()hasOwnProperty: ƒ hasOwnProperty()isPrototypeOf: ƒ isPrototypeOf()propertyIsEnumerable: ƒ propertyIsEnumerable()toLocaleString: ƒ toLocaleString()toString: ƒ toString()valueOf: ƒ valueOf()__defineGetter__: ƒ __defineGetter__()__defineSetter__: ƒ __defineSetter__()__lookupGetter__: ƒ __lookupGetter__()__lookupSetter__: ƒ __lookupSetter__()get __proto__: ƒ __proto__()set __proto__: ƒ __proto__()
+function Person(age, city){
+	this.age = age;
+this.city = city;
+}
+Person.prototype.show=function(){
+console.log('I am Show of Person');
+}
+ƒ (){
+console.log('I am Show of Person');
+}
+Person.prototype;
+{show: ƒ, constructor: ƒ}
+Person.prototype.__proto__;
+{constructor: ƒ, __defineGetter__: ƒ, __defineSetter__: ƒ, hasOwnProperty: ƒ, __lookupGetter__: ƒ, …}
+Customer.prototype.__proto__= Person.prototype;
+{show: ƒ, constructor: ƒ}
+var ram = new Customer(1001,'Ram',99999);
+undefined
+ram.show();
+VM5484:6 I am Show of Person
+undefined
+ram;
+Customer {id: 1001, name: "Ram", balance: 99999}balance: 99999id: 1001name: "Ram"__proto__: Personprint: ƒ ()constructor: ƒ Customer(id, name, balance)__proto__: Object
+console.dir(Customer);
+VM5800:1 ƒ Customer(id, name, balance)arguments: nullcaller: nulllength: 3name: "Customer"prototype: Personprint: ƒ ()constructor: ƒ Customer(id, name, balance)__proto__: Object__proto__: ƒ ()apply: ƒ apply()arguments: (...)bind: ƒ bind()call: ƒ call()caller: (...)constructor: ƒ Function()length: 0name: ""toString: ƒ toString()Symbol(Symbol.hasInstance): ƒ [Symbol.hasInstance]()get arguments: ƒ ()set arguments: ƒ ()get caller: ƒ ()set caller: ƒ ()__proto__: Object[[FunctionLocation]]: <unknown>[[Scopes]]: Scopes[0][[FunctionLocation]]: VM157:1[[Scopes]]: Scopes[1]
+undefined
+Customer.prototype= Object.create(Person.prototype);
+Person {}
+class A{
+constructor(){
+}
+print(){
+}
+}
+class B extends A{
+constructor(){
+super();
+}
+}
+undefined
+ram;
+Customer {id: 1001, name: "Ram", balance: 99999}
+var salaryDetails ={salary:9999, hra:4444,da:4433};
+undefined
+Object.assign(ram,salaryDetails);
+Customer {id: 1001, name: "Ram", balance: 99999, salary: 9999, hra: 4444, …}
+ram;
+Customer {id: 1001, name: "Ram", balance: 99999, salary: 9999, hra: 4444, …}
+var e = {...ram,...salaryDetails};
+
+undefined
+e;
+{id: 1001, name: "Ram", balance: 99999, salary: 9999, hra: 4444, …}
+salaryDetails
+{salary: 9999, hra: 4444, da: 4433}
+salaryDetails.pay = {bonus:5555,pf:2222};
+{bonus: 5555, pf: 2222}
+salaryDetails
+{salary: 9999, hra: 4444, da: 4433, pay: {…}}
+Object.assign(e,salaryDetails);
+{id: 1001, name: "Ram", balance: 99999, salary: 9999, hra: 4444, …}
+e;
+{id: 1001, name: "Ram", balance: 99999, salary: 9999, hra: 4444, …}balance: 99999da: 4433hra: 4444id: 1001name: "Ram"pay: {bonus: 5555, pf: 2222}salary: 9999__proto__: Object
+salaryDetails.pay.bonus=999999;
+999999
+e;
+{id: 1001, name: "Ram", balance: 99999, salary: 9999, hra: 4444, …}balance: 99999da: 4433hra: 4444id: 1001name: "Ram"pay: {bonus: 999999, pf: 2222}salary: 9999__proto__: Object
+var m = {...salary,...salary.pay};
+VM7125:1 Uncaught ReferenceError: salary is not defined
+    at <anonymous>:1:13
+(anonymous) @ VM7125:1
+var m = {...salaryDetails,...salaryDetails.pay};
+undefined
+m;
+{salary: 9999, hra: 4444, da: 4433, pay: {…}, bonus: 999999, …}bonus: 999999da: 4433hra: 4444pay: {bonus: 999999, pf: 2222}bonus: 999999pf: 2222__proto__: Objectpf: 2222salary: 9999__proto__: Object
+delete salaryDetails.pay;
+true
+salaryDetails.bonus =1;
+1
+m;
+{salary: 9999, hra: 4444, da: 4433, pay: {…}, bonus: 999999, …}
+window;
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+this;
+Window {postMessage: ƒ, blur: ƒ, focus: ƒ, close: ƒ, frames: Window, …}
+window == this;
+true
+function whoAmI(){
+console.log("Name is ", this.myname);
+}
+undefined
+window.whoAmI();
+VM7722:2 Name is  undefined
+undefined
+var myname = "Amit";
+undefined
+window.myname;
+"Amit"
+window.whoAmI();
+VM7722:2 Name is  Amit
+undefined
+whoAmI();
+VM7722:2 Name is  Amit
+undefined
+var emp = {myname:'Ram'};
+undefined
+var customer = {myname:'Shyam'};
+undefined
+window.whoAmI;
+ƒ whoAmI(){
+console.log("Name is ", this.myname);
+}
+var fn = whoAmI.bind(emp);
+undefined
+fn();
+VM7722:2 Name is  Ram
+undefined
+whoAmI.bind(customer)();
+VM7722:2 Name is  Shyam
+undefined
+customer;
+{myname: "Shyam"}
+function whoAmI(city,phone){
+console.log("Name is ", this.myname, phone , city);
+}
+undefined
+whoAmI.bind(customer)('Delhi',3333);
+VM8340:2 Name is  Shyam 3333 Delhi
+undefined
+whoAmI.call(customer,'Delhi',3333);
+VM8340:2 Name is  Shyam 3333 Delhi
+undefined
+whoAmI.apply(customer,['Delhi',3333]);
+VM8340:2 Name is  Shyam 3333 Delhi
+undefined
+var object = {
+arr:[10,20,30,1,6,7,9],
+evenArr:[],
+fillEven(){
+this.arr.forEach(function(currentElement){
+if(currentElement%2==0){
+this.evenArr.push(currentElement);
+}
+})
+return this.evenArr;
+}
+}
+undefined
+object.fillEven();
+VM8897:7 Uncaught TypeError: Cannot read property 'push' of undefined
+    at <anonymous>:7:14
+    at Array.forEach (<anonymous>)
+    at Object.fillEven (<anonymous>:5:10)
+    at <anonymous>:1:8
+(anonymous) @ VM8897:7
+fillEven @ VM8897:5
+(anonymous) @ VM8961:1
+var object = {
+arr:[10,20,30,1,6,7,9],
+evenArr:[],
+fillEven(){
+var _self = this;
+this.arr.forEach(function(currentElement){
+if(currentElement%2==0){
+_self.evenArr.push(currentElement);
+}
+})
+return this.evenArr;
+}
+}
+undefined
+object.fillEven();
+(4) [10, 20, 30, 6]
+var object = {
+arr:[10,20,30,1,6,7,9],
+evenArr:[],
+fillEven(){
+
+this.arr.forEach((currentElement)=>{
+if(currentElement%2==0){
+this.evenArr.push(currentElement);
+}
+})
+return this.evenArr;
+}
+}
+undefined
+object.fillEven();
+(4) [10, 20, 30, 6]
+var a=[10,20,30,40];
+undefined
+a.map(x=>x>50)
+(4) [false, false, false, false]0: false1: false2: false3: falselength: 4__proto__: Array(0)
+a.map(x=>{if(x>50))
+VM10889:1 Uncaught SyntaxError: Unexpected token )
+a.map(x=>{if(x>50) x })
+(4) [undefined, undefined, undefined, undefined]
+a.map(x=>{if(x>50) x })
+(4) [undefined, undefined, undefined, undefined]
+a.map(x=>{if(x>20))
+VM11008:1 Uncaught SyntaxError: Unexpected token )
+a.reduce(x=>{if(x>50))
+VM11043:1 Uncaught SyntaxError: Unexpected token )
+a.reduce(x=>{if(x>20)})
+VM11099:1 Uncaught SyntaxError: Unexpected token }
+a.reduce(x=>if(x>20))
+VM11153:1 Uncaught SyntaxError: Unexpected token if
+a.reduce((x,y)=>if(x>20) x)
+VM11200:1 Uncaught SyntaxError: Unexpected token if
+a.reduce((arr,obj)=>{if(obj>20){ arr.push(obj);} return arr;},[]);
+(2) [30, 40]
+let s = a.map((item,sum) => item+sum);
+s
+(4) [10, 21, 32, 43]
+a;
+(4) [10, 20, 30, 40]
+z = a.map(y=>console.log(y));
+VM11943:1 10
+VM11943:1 20
+VM11943:1 30
+VM11943:1 40
+(4) [undefined, undefined, undefined, undefined]
+z;
+(4) [undefined, undefined, undefined, undefined]
+z = a.map(y=>{
+if(y>20){
+return y;
+}
+});
+(4) [undefined, undefined, 30, 40]
+z;
+(4) [undefined, undefined, 30, 40]
+async function cube(num){
+	var pr = new Promise((resolve, reject)=>{
+	setTimeout(()=>{
+	resolve(num**3);    
+},6000);    
+});
+	return pr;
+}
+undefined
+async function total(){
+	return await cube(3) + await cube(5) + await cube(7);
+}
+undefined
+async function cube(num){
+	console.log("Inside Cube ",num);
+	var pr = new Promise((resolve, reject)=>{
+	setTimeout(()=>{
+	resolve(num**3);    
+},6000);    
+});
+	return pr;
+}
+undefined
+total().then(sum=>console.log("Sum is",sum)).catch(err=>console.log("Error is ",err));
+VM16807:2 Inside Cube  3
+Promise {<pending>}
+VM16807:2 Inside Cube  5
+VM16807:2 Inside Cube  7
+VM16924:1 Sum is 495
